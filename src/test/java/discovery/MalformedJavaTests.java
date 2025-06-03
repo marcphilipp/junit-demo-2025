@@ -12,12 +12,12 @@ import static org.junit.jupiter.api.DynamicTest.dynamicTest;
 public class MalformedJavaTests {
 
     @Test
-    public int test() {
+    int test() {
         return 42;
     }
 
     @TestFactory
-    public Object testFactory() {
+    Object testFactory() {
         return List.of(dynamicTest("test", () -> {}));
     }
 
@@ -25,7 +25,7 @@ public class MalformedJavaTests {
     static class InnerTests {
 
         @Test
-        public void test() {}
+        void test() {}
     }
 
 }
