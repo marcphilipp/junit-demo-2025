@@ -1,5 +1,6 @@
 package params;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.BeforeParameterizedClassInvocation;
 import org.junit.jupiter.params.ParameterizedClass;
@@ -38,5 +39,10 @@ public record CustomInitializationListTests(
         assertTrue(added);
         assertTrue(list.contains("value"));
         assertEquals("value", list.getFirst());
+    }
+
+    @AfterEach
+    void clearList() {
+        list.clear();
     }
 }

@@ -1,5 +1,6 @@
 package params;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedClass;
 import org.junit.jupiter.params.converter.ConvertWith;
@@ -13,7 +14,7 @@ import java.util.Vector;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@ParameterizedClass(name = "{0}")
+@ParameterizedClass(name = "[{index}] {0}")
 @ValueSource(classes = {ArrayList.class, LinkedList.class, Vector.class})
 public record ParameterizedWithValueSourceAndConverterRecordListTests(
         @ConvertWith(Instantiate.class) List<String> list) {
@@ -30,5 +31,10 @@ public record ParameterizedWithValueSourceAndConverterRecordListTests(
         assertTrue(added);
         assertTrue(list.contains("value"));
         assertEquals("value", list.getFirst());
+    }
+
+    @AfterEach
+    void clearList() {
+        list.clear();
     }
 }
