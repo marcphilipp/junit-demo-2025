@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.Parameter;
 import org.junit.jupiter.params.ParameterizedClass;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.platform.commons.support.ReflectionSupport;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -21,8 +20,11 @@ import static org.junit.jupiter.params.provider.Arguments.argumentSet;
 public class ParameterizedListTests {
 
     static Stream<?> listImplementations() {
-        return Stream.of(ArrayList.class, LinkedList.class, Vector.class)
-                .map((Class<?> clazz) -> argumentSet(clazz.getSimpleName(), ReflectionSupport.newInstance(clazz)));
+        return Stream.of(
+                argumentSet("ArrayList", new ArrayList<>()),
+                argumentSet("LinkedList", new LinkedList<>()),
+                argumentSet("Vector", new Vector<>())
+        );
     }
 
     @Parameter
