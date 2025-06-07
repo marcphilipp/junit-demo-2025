@@ -18,7 +18,7 @@ import static org.junit.jupiter.params.provider.Arguments.argumentSet;
 
 @ParameterizedClass
 @MethodSource("listImplementations")
-public class ParameterizedListTests {
+class ParameterizedListTests {
 
     static Stream<?> listImplementations() {
         return Stream.of(

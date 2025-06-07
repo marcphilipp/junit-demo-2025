@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ParameterizedClass(name = "[{index}] {0}")
 @ValueSource(classes = {ArrayList.class, LinkedList.class, Vector.class})
-public class ParameterizedWithValueSourceAndConverterListTests {
+class ParameterizedWithValueSourceAndConverterListTests {
 
     @Parameter
     @ConvertWith(Instantiate.class)

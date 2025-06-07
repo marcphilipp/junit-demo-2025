@@ -13,7 +13,7 @@ import java.util.Vector;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ListTests {
+class ListTests {
 
     private static abstract class AbstractListTests {
 
@@ -67,5 +67,4 @@ public class ListTests {
             return new Vector<>();
         }
     }
-
 }

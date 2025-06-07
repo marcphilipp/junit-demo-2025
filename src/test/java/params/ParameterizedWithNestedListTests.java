@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ParameterizedClass(name = "[{index}] {0}")
 @ValueSource(classes = {ArrayList.class, LinkedList.class, Vector.class})
-public class ParameterizedWithNestedListTests {
+class ParameterizedWithNestedListTests {
 
     @Parameter
     @ConvertWith(Instantiate.class)

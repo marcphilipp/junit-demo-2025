@@ -1,6 +1,5 @@
 package params;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedClass;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -16,12 +15,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ParameterizedClass(name = "[{index}] {0}")
 @ValueSource(classes = {ArrayList.class, LinkedList.class, Vector.class})
-public class ParameterizedWithValueSourceListTests {
+class ParameterizedWithValueSourceListTests {
 
     List<String> list;
 
-    ParameterizedWithValueSourceListTests(Class<? extends List<String>> list) {
-        this.list = ReflectionSupport.newInstance(list);
+    ParameterizedWithValueSourceListTests(Class<? extends List<String>> listType) {
+        this.list = ReflectionSupport.newInstance(listType);
     }
 
     @Test
@@ -36,10 +35,5 @@ public class ParameterizedWithValueSourceListTests {
         assertTrue(added);
         assertTrue(list.contains("value"));
         assertEquals("value", list.getFirst());
-    }
-
-    @AfterEach
-    void clearList() {
-        list.clear();
     }
 }

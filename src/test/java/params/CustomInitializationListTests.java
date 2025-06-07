@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ParameterizedClass(name = "{0}")
 @ValueSource(classes = {ArrayList.class, LinkedList.class, Vector.class})
-public record CustomInitializationListTests(
+record CustomInitializationListTests(
         @ConvertWith(Instantiate.class) List<String> list) {
 
     @BeforeParameterizedClassInvocation

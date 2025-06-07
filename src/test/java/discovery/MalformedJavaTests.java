@@ -9,7 +9,7 @@ import java.util.List;
 import static org.junit.jupiter.api.DynamicTest.dynamicTest;
 
 @SuppressWarnings("JUnitMalformedDeclaration")
-public class MalformedJavaTests {
+class MalformedJavaTests {
 
     @Test
     int test() {
